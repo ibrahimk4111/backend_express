@@ -16,5 +16,5 @@ ForbiddenError: Forbidden
 
 ### solution of problem - 1 : ForbiddenError: Forbidden
 `
-const path = require("path") then sendFile(path.join(__dirname + "../views/index.html"))
+const path = require("path") then sendFile(path.join(__dirname + "/../views/index.html"))
 `
