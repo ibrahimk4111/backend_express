@@ -1,3 +1,4 @@
+const {v4: uuidv4} = require('uuid')
 const path = require('path')
 const users = require("../models/users.model");
 
@@ -15,11 +16,12 @@ exports.getUsers = (req, res) => {
 exports.postUsers = (req, res) => {
     // getting value from frontend
     const name = req.body.name;
+    const email = req.body.email;
     const age = Number(req.body.age);
   
     // create json using datas and push them into users array
     const user ={
-      name, age
+      id:uuidv4(), name, email, age
     }
     users.push(user)
     res.status(201).json({
