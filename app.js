@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+// static middleware to use images and css
+app.use(express.static('folder_Name'))
+
 // parsing data into json
 // app.use(express.urlencoded({extended: true})); # express js build in alternet of body-parser
 const bodyParser = require('body-parser')
