@@ -9,7 +9,7 @@ exports.getUsersForm = (req, res) => {
 
 // get users
 exports.getUsers = (req, res) => {
-  res.status(200).json({users});
+  res.status(200).json({ users });
 };
 
 // post users or create new user
@@ -27,7 +27,7 @@ exports.createUsers = (req, res) => {
     age,
   };
   users.push(user);
-  res.status(201).json({users});
+  res.status(201).json({ users });
 };
 
 // update user's data
@@ -42,6 +42,16 @@ exports.updateUser = (req, res) => {
       filteredUser.email = email;
       filteredUser.age = age;
     });
-  res.status(200).json({users});
+  res.status(200).json({ users });
 };
 
+// delete user
+exports.deleteUser = (req, res) => {
+  try {
+    const userId = req.params.id;
+    afterDeleteUser = users.filter((user) => user.id != userId);
+    res.status(200).json({ afterDeleteUser }); 
+  } catch (error) {
+    res.status(500).json("server error");  
+  }
+};
