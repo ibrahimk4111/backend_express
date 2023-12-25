@@ -19,10 +19,11 @@
     <title>Home Page</title>
   </head>
   <body class="p-5">
-
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/users" target="_blank" referrerpolicy="no-referrer">Users</a></li>
+      <li>
+        <a href="/users" target="_blank" referrerpolicy="no-referrer">Users</a>
+      </li>
     </ul>
 
     <h1>Form for MVC practice</h1>
@@ -50,10 +51,15 @@
     </table>
 
     <script>
-      
       const tableBody = document.querySelector(".tableBody");
 
-      fetch("http://localhost:8800/users")
+      const url1 = "https://backend-express-server.onrender.com/";
+      fetch(url1)
+        .then((res) => res.json())
+        .then((datas) => tableRows(datas));
+
+      const url2 = "http://localhost:8800/users";
+      fetch(url2)
         .then((res) => res.json())
         .then((datas) => tableRows(datas));
 
