@@ -1,11 +1,15 @@
 const express = require('express');
-const { getUsers, getUsersForm, createUsers, updateUser, deleteUser } = require('../controller/users.controller');
+const { getUsers, getUsersForm, createUsers, updateUser, deleteUser, getEditForm } = require('../controller/users.controller');
 const router = express.Router()
 
 
-// get users router
+// get users form router
 router.get("/", getUsersForm);
 
+// get users edit router
+router.get("/edit/:id", getEditForm);
+
+// get users router
 router.get("/users", getUsers);
 
 // post or create users router

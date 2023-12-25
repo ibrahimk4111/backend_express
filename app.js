@@ -1,8 +1,9 @@
+const path = require('path')
 const express = require("express");
 const app = express();
 
-// static middleware to use images and css
-// app.use(express.static('folder_Name'))
+// static middleware to use images, css and Javascript
+app.use(express.static(path.join(__dirname, "views")))
 
 // parsing data into json
 // app.use(express.urlencoded({extended: true})); # express js build in alternet of body-parser
