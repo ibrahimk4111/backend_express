@@ -24,7 +24,7 @@ exports.createUsers = (req, res) => {
   users.push(user);
   // res.status(201).json(users);
   res.sendFile(path.join(__dirname + "/../views/index.html"));
-  // res.status(301).redirect("/")
+  res.status(301).redirect("/")
 };
 
 // update user's data
