@@ -18,7 +18,7 @@
     />
     <title>Home Page</title>
   </head>
-  <body class="p-5">
+  <body class="p-lg-5 p-3">
     <ul>
       <li><a href="/">Home</a></li>
       <li>
@@ -26,10 +26,14 @@
       </li>
     </ul>
 
-    <h1>Form for MVC practice</h1>
+    <h3>Form for MVC practice</h3>
 
     <!-- form  -->
-    <form action="/users" method="POST">
+    <form
+      action="/users"
+      method="POST"
+      class="d-flex flex-lg-row flex-column gap-1 w-75 "
+    >
       <input type="text" name="name" placeholder="your name" />
       <input type="text" name="email" placeholder="ibrahim@gmail.com" />
       <input type="number" name="age" placeholder="age" />
@@ -37,14 +41,15 @@
     </form>
 
     <!-- showcase section -->
-    <table class="table table-striped mt-5">
-      <thead>
+    <table class="table table-striped mt-5 table-bordered">
+      <thead class="table-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Age</th>
-          <th scope="col">Actions</th>
+          <!-- <th scope="col">Actions</th> -->
+          <!-- <td class=" d-flex gap-2 "><a href="#"><i class="fa-regular fa-pen-to-square "></i></a> <a href="#"><i class="fa-solid fa-trash-can"></i></a></td> -->
         </tr>
       </thead>
       <tbody class="tableBody"></tbody>
@@ -53,8 +58,8 @@
     <script>
       const tableBody = document.querySelector(".tableBody");
 
-      const url = "https://backend-express-server.onrender.com/users";
-      // const url = "http://localhost:8800/users";
+      // const url = "https://backend-express-server.onrender.com/users";
+      const url = "http://localhost:8800/users";
       fetch(url)
         .then((res) => res.json())
         .then((datas) => tableRows(datas));
@@ -65,16 +70,14 @@
         datas.map((data, index) => {
           const tableRow = `
             <tr>
-              <th scope="row">${index + 1}</th>
-              <td>${data.name}</td>
-              <td>${data.email}</td>
+              <th scope="col">${index + 1}</th>
+              <td class=" text-nowrap ">${data.name}</td>
+              <td >${data.email}</td>
               <td>${data.age}</td>
-              <td class=" d-flex gap-4 "><a href="#"><i class="fa-regular fa-pen-to-square "></i></a> <a href="#"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
           `;
           htmlData += tableRow;
         });
-
         tableBody.innerHTML = htmlData;
       };
     </script>
