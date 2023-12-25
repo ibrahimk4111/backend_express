@@ -14,22 +14,17 @@ exports.getUsers = (req, res) => {
 
 // post users or create new user
 exports.createUsers = (req, res) => {
-  // getting value from frontend
-  const name = req.body.name;
-  const email = req.body.email;
-  const age = Number(req.body.age);
-
   // create json using datas and push them into users array
   const user = {
     id: uuidv4(),
-    name,
-    email,
-    age,
+    name: req.body.name,
+    email:req.body.email,
+    age:Number(req.body.age)
   };
   users.push(user);
   // res.status(201).json(users);
   res.sendFile(path.join(__dirname + "/../views/index.html"));
-  res.status(301).redirect("/")
+  // res.status(301).redirect("/")
 };
 
 // update user's data
