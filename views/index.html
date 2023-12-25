@@ -53,13 +53,9 @@
     <script>
       const tableBody = document.querySelector(".tableBody");
 
-      const url1 = "https://backend-express-server.onrender.com/";
-      fetch(url1)
-        .then((res) => res.json())
-        .then((datas) => tableRows(datas));
-
-      const url2 = "http://localhost:8800/users";
-      fetch(url2)
+      const url = "https://backend-express-server.onrender.com/users";
+      // const url = "http://localhost:8800/users";
+      fetch(url)
         .then((res) => res.json())
         .then((datas) => tableRows(datas));
 
